@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+      <header>
+        <h1>戰艦世界戰績查詢網-beta</h1>
+      </header>
+      <nav id = "bar">
+        <ul class = "functions">
+          <li><a class = "mumi" href=""><span class = dot>></span>查詢玩家</a></li>
+          <li><a class = "mumi" href=""><span class = dot>></span>船艦資訊</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class = inputbox>
+      <form class="new-task">
+        <input type="text" name="text" placeholder="請輸入玩家暱稱" />
+      </form>
+    </div>
+      <ul class = "t">
+        {{#each tasks}}
+          {{> task}}
+        {{/each}}
+      </ul>
+  </body>
+  
+  
