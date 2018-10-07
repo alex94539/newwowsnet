@@ -1,9 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
 import { HTTP } from 'meteor/http';
-import { enterpoint } from '../../client/enter.js';
-import { finduserIDbynick } from '../env/urls.js';
-import { generalview } from '../../client/grabrecords/general/grabgeneralrecords.js';
+import { EnterPoint } from '../client/GrabRecords/Enter.js';
 
 import './task.js';
 import './body.html';
@@ -23,7 +21,7 @@ Template.body.events({
     // Get value from form element
     const target = event.target;
     const text = target.text.value;
-    await enterpoint(text);
+    await EnterPoint(text);
     
     // Insert a task into the collection
     Tasks.insert({

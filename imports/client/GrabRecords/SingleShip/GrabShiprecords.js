@@ -1,17 +1,17 @@
-import { foreachship } from './foreachship.js';
+import { ForEachShip } from './ForEachShip.js';
 
 const shipdata = require('./shipdata.json');
 //shipdata = JSON.parse(shipdata);
 
-export function playershipsdata(obj){
+export function PlayerShipsData(obj){
 
     return new Promise(async (resolve, reject) => {
-        let promisearr = [];
+        let PromiseArray = [];
         for(let index = 0; index < shipdata.length; index++){
-            promisearr.push(foreachship(obj, index));
+            PromiseArray.push(ForEachShip(obj, index));
         }
 
-        let datas = await Promise.all(promisearr);  
+        let datas = await Promise.all(PromiseArray);  
         datas = datas.filter((value) => {
             if(value) return value;
         });
