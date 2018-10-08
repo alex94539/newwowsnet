@@ -1,3 +1,5 @@
+const key = require("../../.env");
+
 export function ExportApikey(){
-    return "09c1c0d2898bafce438c7cb708033ad0";
+    return key.key;
 }
