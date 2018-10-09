@@ -1,5 +1,5 @@
-const key = require("../../.env");
+import { key } from '../../env'
 
 export function ExportApikey(){
-    return key.key;
+    return key();
 }

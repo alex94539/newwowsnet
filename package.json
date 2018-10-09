@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+    "dotenv": "^6.1.0",
     "meteor-node-stubs": "^0.3.2",
     "promise-mysql": "^3.3.1"
   },
