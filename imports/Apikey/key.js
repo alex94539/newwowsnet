@@ -1,5 +1,5 @@
-import { key } from '../../env'
+import { key } from '../../env.js'
 
 export function ExportApikey(){
-    return key();
+    return key()
 }
