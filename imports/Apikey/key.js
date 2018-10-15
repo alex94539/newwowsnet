@@ -14,6 +14,6 @@ export function ExportApikey(){
 
 
 export function ExportApikey(){
-    
+    console.log(process.env.KEY);
     return process.env.KEY;
 }
