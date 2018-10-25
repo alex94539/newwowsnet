@@ -1,4 +1,4 @@
-import { GetPlayerDatabyID } from '../../../urls/urls.js';
+import { GetPlayerDatabyID } from '../../urls/urls.js';
 import { HTTP } from 'meteor/http';
 
 export function api1(userID, obj){

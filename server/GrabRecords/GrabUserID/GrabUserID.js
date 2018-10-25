@@ -1,4 +1,4 @@
-import { FindUserIDbyNick } from '../../../urls/urls.js';
+import { FindUserIDbyNick } from '../../urls/urls.js';
 import { HTTP } from 'meteor/http';
 
 export async function grabuserID(nick, obj){

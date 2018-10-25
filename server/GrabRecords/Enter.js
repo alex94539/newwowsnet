@@ -12,6 +12,8 @@ export function EnterPoint(nick){
             if(obj){
                 const singleshipdata = await PlayerShipsData(obj);
                 console.log(singleshipdata);
+                obj.shiprecord = singleshipdata;
+                resolve(obj);
             }
             else{
                 console.log("datas' locked");

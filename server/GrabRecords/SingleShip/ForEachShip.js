@@ -1,4 +1,4 @@
-import { GetSingleShipRecord } from '../../../urls/urls.js';
+import { GetSingleShipRecord } from '../../urls/urls.js';
 
 import { HTTP } from 'meteor/http';
 
@@ -18,6 +18,7 @@ export function ForEachShip(obj, index){
 //
 function ProcessData(result, ID, index){
     let singleship = {};
+    //console.log(result);
     if(result.data[ID]){
         const resuabbre = result.data[ID][0].pvp;
         singleship.Shipname = ShipData[index].name[0];
@@ -39,6 +40,9 @@ function ProcessData(result, ID, index){
         singleship.Survivedrate_Losses = ((Number(((resuabbre.survived_battles - resuabbre.survived_wins) / resuabbre.survived_battles).toFixed(4)) *100).toFixed(2)).toString() + "%";
         //singleship
         return singleship;
+    }
+    else if(result.status === 'error'){
+        return index;
     }
     else{
         return null;
