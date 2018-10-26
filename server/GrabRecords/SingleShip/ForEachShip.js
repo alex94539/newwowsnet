@@ -18,7 +18,6 @@ export function ForEachShip(obj, index){
 //
 function ProcessData(result, ID, index){
     let singleship = {};
-    //console.log(result);
     if(result.data[ID]){
         const resuabbre = result.data[ID][0].pvp;
         singleship.Shipname = ShipData[index].name[0];
@@ -30,7 +29,7 @@ function ProcessData(result, ID, index){
         singleship.Losses = resuabbre.losses;
         singleship.Battles = resuabbre.battles;
         singleship.Tie = resuabbre.battles - (resuabbre.wins + resuabbre.losses);
-        singleship.Winrate = (Number((resuabbre.wins / resuabbre.battles).toFixed(4)) * 100).toString() + "%";
+        singleship.Winrate = ((Number((resuabbre.wins / resuabbre.battles).toFixed(4)) * 100).toFixed(2)).toString() + "%";
         singleship.Average_Dmg = Number((resuabbre.damage_dealt / resuabbre.battles).toFixed(0));
         singleship.Average_Frag = Number((resuabbre.frags / resuabbre.battles).toFixed(1));
         singleship.Survived_Wins = resuabbre.survived_wins;
@@ -38,7 +37,6 @@ function ProcessData(result, ID, index){
         singleship.Survived_Losses = resuabbre.survived_battles - resuabbre.survived_wins;
         singleship.Survivedrate_Wins = ((Number((resuabbre.survived_wins / resuabbre.survived_battles).toFixed(4)) * 100).toFixed(2)).toString() + "%";
         singleship.Survivedrate_Losses = ((Number(((resuabbre.survived_battles - resuabbre.survived_wins) / resuabbre.survived_battles).toFixed(4)) *100).toFixed(2)).toString() + "%";
-        //singleship
         return singleship;
     }
     else if(result.status === 'error'){

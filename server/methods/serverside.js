@@ -11,7 +11,7 @@ Meteor.methods({
         return data;
     },
     exportapikey: function(){
-        return process.env.KEY;
+        //return process.env.KEY;
     }
 
 })

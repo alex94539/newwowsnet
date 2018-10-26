@@ -8,15 +8,12 @@ export async function api2(userID, obj){
             if(result.data[obj.UserID] != null){
                 obj.ClanID = result.data[obj.UserID].clan_id;
                 obj.HaveClan = true;
-                //api3(obj);
             }
             else{
                 obj.HaveClan = false;
                 obj.ClanID = null;
                 obj.ClanTAG = "no Clan";
-                //playershipsdata(obj);
             }
-            //console.log(`api2`);
             resolve(obj);
         });
     })
