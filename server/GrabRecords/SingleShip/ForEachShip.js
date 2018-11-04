@@ -9,6 +9,8 @@ export function ForEachShip(obj, index){
     return new Promise((resolve,reject) => {
         HTTP.call("get", GetSingleShipRecord(obj.UserID, ShipData[index].id), (error, result)=>{
             result = JSON.parse(result.content);
+            //console.log(result);
+            //console.log(ShipData[index].name[0])
             let data = {};
             data = ProcessData(result, obj.UserID, index);
             resolve(data);

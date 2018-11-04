@@ -1,27 +1,54 @@
 import { ForEachShip } from './ForEachShip.js';
 
 const ShipData = require('./shipdata.json');
-//shipdata = JSON.parse(shipdata);
 
-export function PlayerShipsData(obj){
+export async function PlayerShipsData(obj){
 
     return new Promise(async (resolve, reject) => {
-        const AllData = await ApiRequest(obj, [0,1,2,3,4]);
+        let start_index = 0;
+        let data = [];
+        //const AllData = await ApiRequest(obj, [0,1,2,3,4]);
         
+        let Interval = setInterval(async () => {
+            if(start_index >= ShipData.length) clearInterval(Interval);
 
-
+            await new Promise(async (resolve, reject) => {
+                data.push(await RequestByInterval(obj, start_index));
+                start_index += 15;
+                resolve();
+            });
+        }, 1000);
+        Interval;
+        console.log('DATA: ');
+        console.log(data);
         //InitArray()
 
         let errorindex = [];
         let datas = [];
         //let AllData = PromiseProcess(PromiseArray, datas, errorindex);
         
-        resolve(AllData);
+        resolve(data);
         
     })
     
 }
 
+
+async function RequestByInterval(obj, index){
+    return new Promise(async (resolve,reject) => {
+        let PromiseArray = [];
+        let start = index, end = (index + 15 < ShipData.length) ? index + 15 : ShipData.length;
+        for(let k = start; k < end; k++){
+            PromiseArray.push(ForEachShip(obj, k));
+        }
+        const data = await Promise.all(PromiseArray);
+        console.log(`Request by Interval`)
+        console.log(data);
+        resolve(data);
+    })
+}
+
+/*
 function ErrorProcess(datas, obj){
     return new Promise(async (resolve,reject) => {
         let NewData = [];
@@ -57,12 +84,4 @@ function ApiRequest(obj, indexes){
         resolve(tempDatas);
     });
 }
-
-function InitArray(){
-    let arr = [];
-    for(let k=0; k<=ShipData.length; k++){
-        arr.push(k);
-    }
-    return arr;
-}
-//shipdata.length
+*/

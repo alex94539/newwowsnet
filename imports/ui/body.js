@@ -8,7 +8,7 @@ import './body.html';
 
 
 Template.body.helpers({
-  tasks() {
+  SUCK() {
     return Tasks.find({},{sort: { createdAt: -1}});
   },
 });
