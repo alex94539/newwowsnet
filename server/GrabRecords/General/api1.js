@@ -25,6 +25,7 @@ export function api1(userID, obj){
 function deal(result, obj, userID){
     let abbreviation = result.data[userID];
 
+    obj.CreatedAt = new Date();
     obj.Is_Hidden = false;
     obj.UserID = userID;
     obj.Nickname = abbreviation.nickname;

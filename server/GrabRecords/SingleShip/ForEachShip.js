@@ -31,14 +31,14 @@ function ProcessData(result, ID, index){
         singleship.Losses = resuabbre.losses;
         singleship.Battles = resuabbre.battles;
         singleship.Tie = resuabbre.battles - (resuabbre.wins + resuabbre.losses);
-        singleship.Winrate = ((Number((resuabbre.wins / resuabbre.battles).toFixed(4)) * 100).toFixed(2)).toString() + "%";
-        singleship.Average_Dmg = Number((resuabbre.damage_dealt / resuabbre.battles).toFixed(0));
-        singleship.Average_Frag = Number((resuabbre.frags / resuabbre.battles).toFixed(1));
+        singleship.Winrate = (resuabbre.battles == 0) ? 0 : (((Number((resuabbre.wins / resuabbre.battles).toFixed(4)) * 100).toFixed(2)).toString() + "%");
+        singleship.Average_Dmg = (resuabbre.battles == 0) ? 0 : (Number((resuabbre.damage_dealt / resuabbre.battles).toFixed(0)));
+        singleship.Average_Frag = (resuabbre.battles == 0) ? 0 : (Number((resuabbre.frags / resuabbre.battles).toFixed(1)));
         singleship.Survived_Wins = resuabbre.survived_wins;
         singleship.Survived_Battles = resuabbre.survived_battles;
         singleship.Survived_Losses = resuabbre.survived_battles - resuabbre.survived_wins;
-        singleship.Survivedrate_Wins = ((Number((resuabbre.survived_wins / resuabbre.survived_battles).toFixed(4)) * 100).toFixed(2)).toString() + "%";
-        singleship.Survivedrate_Losses = ((Number(((resuabbre.survived_battles - resuabbre.survived_wins) / resuabbre.survived_battles).toFixed(4)) *100).toFixed(2)).toString() + "%";
+        singleship.Survivedrate_Wins = (resuabbre.survived_battles == 0) ? 0 : ((Number((resuabbre.survived_wins / resuabbre.survived_battles).toFixed(4)) * 100).toFixed(2)).toString() + "%";
+        singleship.Survivedrate_Losses = (resuabbre.survived_battles == 0) ? 0 : ((Number(((resuabbre.survived_battles - resuabbre.survived_wins) / resuabbre.survived_battles).toFixed(4)) *100).toFixed(2)).toString() + "%";
         return singleship;
     }
     else if(result.status === 'error'){

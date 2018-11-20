@@ -10,10 +10,15 @@ export function EnterPoint(nick){
             const obj = await GeneralView(userID);
             console.log(obj);
             if(obj){
-                const singleshipdata = await PlayerShipsData(obj);
-                console.log(singleshipdata);
-                obj.shiprecord = singleshipdata;
-                resolve(obj);
+                
+                setTimeout(async () => {
+                    const singleshipdata = await PlayerShipsData(obj);
+                    console.log(singleshipdata);
+                    obj.shiprecord = ClearNullData(flatten(singleshipdata));
+                    resolve(obj);
+
+                }, 1000);
+                
             }
             else{
                 console.log("datas' locked");
@@ -24,4 +29,15 @@ export function EnterPoint(nick){
         }
     });
 
+}
+
+function flatten(data) {
+    return _.flatten(data,true);
+}
+
+function ClearNullData(data){
+    let newarray = data.filter((value) => {
+        if(value) return value;
+    });
+    return newarray;
 }

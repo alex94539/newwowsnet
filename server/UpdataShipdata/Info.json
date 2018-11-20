@@ -1,0 +1,21 @@
+{
+    "nation": [
+        "USA",
+        "JAPAN",
+        "UK",
+        "France",
+        "Pan_Asia",
+        "Germany",
+        "Italy",
+        "Commonwealth",
+        "USSR",
+        "Poland",
+        "PanAmerica"
+    ],
+    "ShipType" :[
+        "Destroyer",
+        "Battleship",
+        "AirCarrier",
+        "Cruiser"
+    ]
+}
