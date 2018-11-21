@@ -1,4 +1,4 @@
-import { GetClanDatabyID } from '../../../urls/urls.js';
+import { GetClanDatabyID } from '../../urls/urls.js';
 import { HTTP } from 'meteor/http';
 
 export async function api3(userID, obj){

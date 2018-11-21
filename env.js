@@ -1,5 +1,2 @@
-require("dotenv").config();
+require("dotenv").config({ path: 'C:/Users/euphokumiko/Desktop/wowsnet/private/.env'});
 
-export function key (){
-    return process.env.KEY;
-}

@@ -1,10 +1,9 @@
-import { ExportApikey } from '../Apikey/key.js'
+import '../../env.js'
 
-const key = ExportApikey();
+const key = process.env.KEY;
 
 export function FindUserIDbyNick(name){
     const site = "https://api.worldofwarships.asia/wows/account/list/?search=" + name + "&application_id=" + key;
-    //console.log(site);
     return site;
 }
 
