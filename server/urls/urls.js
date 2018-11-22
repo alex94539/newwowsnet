@@ -31,3 +31,8 @@ export function GetSingleShipRecord(userID, shipID){
     const site = "https://api.worldofwarships.asia/wows/ships/stats/?application_id=" + key + "&ship_id=" + shipID + "&account_id=" + userID;
     return site;
 }
+
+export function ShipEncyclopedia(Nation, ShipType){
+    const site = "https://api.worldofwarships.asia/wows/encyclopedia/ships/?application_id=" + key + "&fields=description,images.large,tier,name&nation=" + Nation + "&language=zh-tw&type=" + ShipType;
+    return site;
+}

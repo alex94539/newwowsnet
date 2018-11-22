@@ -45,7 +45,7 @@ async function RequestByInterval(obj, index, upperlevel){
             setTimeout(async () => {
                 await RequestByInterval(obj, index + Limitation, upperlevel);
                 resolve();
-            },1000);
+            },500);
         }
         else{
             resolve();
@@ -53,7 +53,7 @@ async function RequestByInterval(obj, index, upperlevel){
     });
 }
 
-function ClearNullRecord(data){
+function ClearNullRecord(data){//unfunctional
     //data.flat();
     data = data.filter((value) => {
         if(value) return value;
