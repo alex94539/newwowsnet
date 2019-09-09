@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Player } from '../api/tasks.js';
+import { Tasks } from '../api/tasks.js'
 
 
 import './task.js';
@@ -9,7 +10,8 @@ import './body.html';
 
 Template.body.helpers({
   SUCK() {
-    return Player.find({},{sort: { CreatedAt: -1}});
+    let ship = Player.find()
+    return Tasks.find({},{sort: { CreatedAt: -1}});
   },
 });
 
@@ -25,14 +27,8 @@ Template.body.events({
       console.log(result);
     });
     // Insert a task into the collection
-
-    /*
-    Tasks.insert({
-      text,
-      createdAt: new Date(), // current time
-    });
-    */
-    // Clear form
+    
+    
     target.text.value = '';
   },
 });
